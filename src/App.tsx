@@ -16,6 +16,23 @@ const App = () => {
   const handleOperatorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOperator(e.target.value);  
   }
+let array = ["ruzul","divya","yash","joshua","tanmay","samarth"];
+// let a = [<div></div>, <div></div>, <div>yash</div>, <div>joshua</div>, <div>tanmay</div>, <div>samarth</div>];
+   const printResult = () => {
+    let array = ["ruzul","divya","yash","joshua","tanmay","samarth"];
+          let result = [];
+          // for(let i=0; i <10; i=i+2){
+          //   array.push(<div>{i}</div>);
+          //   console.log(array);
+          // }
+
+          for(let i=0; i < array.length; i++){
+            result.push(<div>{array[i]}</div>);
+            
+          }
+          console.log(result);
+          return result;
+        }
 
   const handleSumbit = () => {
         // if(operator === "+"){
@@ -63,6 +80,8 @@ const App = () => {
             setResult("Invalid operator");
             break; 
         }
+
+       
   }
 
   return (
@@ -71,10 +90,18 @@ const App = () => {
       <input type="number" value={number1} onChange={handleNumber1Change}/>
       <input type="text" value={operator} onChange={handleOperatorChange}/>
       <input type="number" value={number2} onChange={handleNumber2Change}/>
-      <button onClick={handleSumbit}>{result}</button>
+      <button onClick={printResult}>{result}</button>
+      {/* {printResult()} */}
+      {array.map((name) => (
+        <div>{name} {name}</div>
+        ))}
     </div>
     </>
   )
 }
+
+// i = 0
+// i < 10
+// i = i + 2;
 
 export default App 
